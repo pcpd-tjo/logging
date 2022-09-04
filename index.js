@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
   res.send("Express on Vercel");
 });
 
-app.use("/logging", require("./loggingRouter.js"));
+app.use("/", require("./loggingRouter.js"));
 
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);

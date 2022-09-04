@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Express on Vercel");
+  res.send("TJO - Logging Server");
 });
 
 app.use("/", require("./loggingRouter.js"));

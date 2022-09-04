@@ -10,11 +10,15 @@ router.get("/title-log", async (req, res) => {
     if (req.query.data) {
         data = JSON.parse(req.query.data);
     } else {
+        let actions = [
+            "added",
+            "removed"
+        ]
         data = {
             "title": "Test_Title",
             "player": "Player1",
             "target": "Player2",
-            "action": "added",
+            "action": actions[Math.floor(Math.random() * actions.length)] // chooses "added" or "removed"
         }   
     }
     

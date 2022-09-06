@@ -15,9 +15,9 @@ router.get("/title-log", async (req, res) => {
             "removed"
         ]
         data = {
-            "title": "Test_Title",
-            "player": "Player1",
-            "target": "Player2",
+            "title": "Test", 
+            "player": "P1",
+            "target": "P2",
             "action": actions[Math.floor(Math.random() * actions.length)] // chooses "added" or "removed"
         }   
     }

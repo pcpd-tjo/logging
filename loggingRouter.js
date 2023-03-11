@@ -43,7 +43,6 @@ router.get("/title-log", async (req, res) => {
     let properties = {
         "Title": "Title Log",
         "Description": `Title giver: ${player} \n Title receiver: ${target} \n Title Name: ${title} \n <t:${Math.floor(Date.now() / 1000)}:F>`,
-        "Footer": { "text": `Does this log look incorrect? Contact untold#0830 if this is the case.` },
         "Color": color
     }
 

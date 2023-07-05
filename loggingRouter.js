@@ -80,16 +80,15 @@ router.get("/crystal-log", async (req, res) => {
 	let targetplayer = data.target; // string 
 	let cg = Boolean(data.cg); // true or false
 	let player = data.player; 
-	let reason = data.reason; // a string
     let action = data.action; // added or removed : a string
 
-	let reasonStr = cg === true ? "Crystal Gathering" : reason
+	let reasonStr = cg === true ? "Crystal Gathering" : ""
     let actionStr = action.charAt(0).toUpperCase() + action.slice(1)
 	let colourStr = (crystal_colour.charAt(0).toUpperCase() + crystal_colour.slice(1)).replace(/ /g,'')
     let HexColour = Colors[colourStr] || 0xffffff
     let properties = {
         "Title": "Crystal Log",
-        "Description": `Crystal Editor: ${player} (${await getIdFromUsername(player)}) \n Player Affected: ${targetplayer} (${await getIdFromUsername(targetplayer)}) \n Crystal ${actionStr}: ${crystal_colour} \n Reason: ${reasonStr} \n <t:${Math.floor(Date.now() / 1000)}:F>`,
+        "Description": `Crystal Editor: ${player} (${await getIdFromUsername(player)}) \n Player Affected: ${targetplayer} (${await getIdFromUsername(targetplayer)}) \n Crystal ${actionStr}: ${crystal_colour} ${reasonStr !== "" ? `\n Reason: ${reasonStr}` : ""} \n <t:${Math.floor(Date.now() / 1000)}:F>`,
         "Color": HexColour
     }
     let embed = await require("./embed.js")(properties)

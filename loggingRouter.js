@@ -113,6 +113,7 @@ router.get("/crystal-log", async (req, res) => {
 });
 
 router.get("/arrest-log", async (req, res) => {
-    res.status(404).json({ "message": "WIP" }) });
+    res.status(404).json({ "message": "WIP" }) 
+});
 
 module.exports = router;

@@ -12,5 +12,3 @@ module.exports = {
     Pink: 0xff00d4 
 
 };
-
-// e.g 0xffffff = #ffffff

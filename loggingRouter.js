@@ -89,7 +89,7 @@ router.get("/crystal-log", async (req, res) => {
     let HexColour = Colors[colourStr] || 0xffffff
     let properties = {
         "Title": "Crystal Log",
-        "Description": `Crystal Editor: ${player} (${await getIdFromUsername(player)}) \n Player Affected: ${targetplayer} (${await getIdFromUsername(targetplayer)}) \n Crystal ${actionStr}: ${colourStr} \n Reason: ${reasonStr} \n <t:${Math.floor(Date.now() / 1000)}:F>`,
+        "Description": `Crystal Editor: ${player} (${await getIdFromUsername(player)}) \n Player Affected: ${targetplayer} (${await getIdFromUsername(targetplayer)}) \n Crystal ${actionStr}: ${crystal_colour} \n Reason: ${reasonStr} \n <t:${Math.floor(Date.now() / 1000)}:F>`,
         "Color": HexColour
     }
     let embed = await require("./embed.js")(properties)

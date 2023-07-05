@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
 
+
 module.exports = async (properties) => {
     console.dir(properties)
     let embed = new EmbedBuilder()

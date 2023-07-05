@@ -23,7 +23,7 @@ router.get("/title-log", async (req, res) => {
 
 	let title = data.title;
 	let target = data.target;
-	let player = data.player;
+	let player = data.editingplayer;
 	let action = data.action;
     let color
     let text

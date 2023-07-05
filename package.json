@@ -3,7 +3,8 @@
     "version":"2",
     "main":"index.js",
     "scripts":{
-      "start":"node index.js"
+    "prep": "npm install discord.js dotenv express noblox.js  -g ",
+      "start":"npm run prep && node index.js"
     },
     "dependencies":{
       "discord.js":"^14.11.0",

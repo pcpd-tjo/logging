@@ -1,5 +1,5 @@
 hidden = [".config", "package-lock.json"]
-run = "npm run start"
+run = "npm run test"
 
 [[hints]]
 regex = "Error \\[ERR_REQUIRE_ESM\\]"

@@ -22,8 +22,6 @@ router.get("/title-log", async (req, res) => {
             "title": "Test", 
             "player": "UntoldGam",
             "target": "Dev_Untold",
-            "player": "P1",
-            "target": "P2",
             "action": actions[Math.floor(Math.random() * actions.length)] // chooses "added" or "removed"
         }   
     }

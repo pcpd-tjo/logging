@@ -79,7 +79,7 @@ router.get("/crystal-log", async (req, res) => {
     let crystal_colour = data.crystal; // string
 	let targetplayer = data.target; // string 
 	let cg = Boolean(data.cg); // true or false
-	let player = data.player; 
+	let player = data.editingplayer; 
     let action = data.action; // added or removed : a string
 
 	let reasonStr = cg === true ? "Crystal Gathering" : ""

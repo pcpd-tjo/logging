@@ -1,15 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const { EmbedBuilder, WebhookClient, inlineCode } = require('discord.js');
-<<<<<<< HEAD
 const { titleWebhookId, titleWebhookToken, crystalWebhookId, crystalWebhookToken } = process.env;
 
 const Colors = require("./Colors.js");
 
 const { getIdFromUsername } = require("noblox.js")
-=======
-const { titleWebhookId, titleWebhookToken } = process.env;
->>>>>>> 6ff4490e6f1e5ec6409a3845c2ffe5a0dc9a9b26
 
 const titleWebhook = new WebhookClient({ id: titleWebhookId, token: titleWebhookToken });
 
@@ -24,13 +20,10 @@ router.get("/title-log", async (req, res) => {
         ]
         data = {
             "title": "Test", 
-<<<<<<< HEAD
             "player": "UntoldGam",
             "target": "Dev_Untold",
-=======
             "player": "P1",
             "target": "P2",
->>>>>>> 6ff4490e6f1e5ec6409a3845c2ffe5a0dc9a9b26
             "action": actions[Math.floor(Math.random() * actions.length)] // chooses "added" or "removed"
         }   
     }
@@ -41,7 +34,6 @@ router.get("/title-log", async (req, res) => {
 	let player = data.player;
 	let action = data.action;
 	console.log(data)
-<<<<<<< HEAD
     let color
     let text
     if (action === "added") {
@@ -50,40 +42,26 @@ router.get("/title-log", async (req, res) => {
     } else if (action === "removed") {
         color = 15548997
         text = `Title Editor: ${player} \n Title Receiever: ${target}`
-=======
-
-	
-
-    let color
-    if (action === "added") {
-        color = 5763719
-    } else if (action === "removed") {
-        color = 15548997
->>>>>>> 6ff4490e6f1e5ec6409a3845c2ffe5a0dc9a9b26
-    } else {
-        res.status(200).json({ "result": "Action is not equal to added or removed" });
     }
 
     let properties = {
         "Title": "Title Log",
-<<<<<<< HEAD
         "Description": `Title Editor: ${player} (${await getIdFromUsername(player)}) \n Player Affected: ${target} (${await getIdFromUsername(target)}) \n Title ${action.charAt(0).toUpperCase() + action.slice(1)}: ${title} \n <t:${Math.floor(Date.now() / 1000)}:F>`,
-=======
+
         "Description": `Title giver: ${player} \n Title receiver: ${target} \n Title Name: ${title} \n <t:${Math.floor(Date.now() / 1000)}:F>`,
->>>>>>> 6ff4490e6f1e5ec6409a3845c2ffe5a0dc9a9b26
         "Color": color
     }
 
     console.log("properties made")
-    let embed = await require("./embed")(properties)
+    let embed = await require("./embed")(properties);
 
     titleWebhook.send({
         embeds: [embed]
     }).then(() => {
-        console.log("embed made")
+        console.log("embed made");
         res.status(200).json({ "result": "Log Created and Sent" });
-<<<<<<< HEAD
     }).catch(console.log);
+
 });
 
 const crystalWebhook = new WebhookClient({ id: crystalWebhookId, token: crystalWebhookToken });
@@ -132,16 +110,6 @@ router.get("/crystal-log", async (req, res) => {
         console.log("Embed made")
         res.status(200).json({"result": "Log Created and Sent"})
     }).catch(console.log);
-	
-	
-
-=======
-    });
-});
-
-router.get("/crystal-log", async (req, res) => {
-	res.status(404).json({ "message": "WIP"})
->>>>>>> 6ff4490e6f1e5ec6409a3845c2ffe5a0dc9a9b26
 });
 
 router.get("/arrest-log", async (req, res) => {

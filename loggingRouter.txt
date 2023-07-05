@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const express = require('express');
 const router = express.Router();
 const { EmbedBuilder, WebhookClient, inlineCode } = require('discord.js');
@@ -42,49 +41,4 @@ router.get("/arrest-log", async (req, res) => {
 	res.status(500).json({ message: "WIP" })
 });
 
-=======
-const express = require('express');
-const router = express.Router();
-const { EmbedBuilder, WebhookClient, inlineCode } = require('discord.js');
-const { titleWebhookId, titleWebhookToken } = process.env;
-
-const titleWebhook = new WebhookClient({ id: titleWebhookId, token: titleWebhookToken });
-var queue = require('express-queue');
-router.use(queue({ activeLimit: 2, queuedLimit: -1 }));
-
-router.get("/title-log", async (req, res) => {
-	let data = req.query.data;
-	data = JSON.parse(data);
-
-	let title = data.title;
-	let target = data.target;
-	let player = data.player;
-	let action = data.action;
-	console.log(data)
-
-	console.log("properties made")
-	console.log("embed made")
-
-	let embed = new EmbedBuilder();
-	embed.setTitle("Title Log",)
-	embed.setDescription(`Title giver: ${player} \n Title receiver: ${target} \n Title Name: ${title} \n <t:${Math.floor(Date.now() / 1000)}:F>`)
-	embed.setFooter({ "text": `Does this log look incorrect? Contact untold#0830 if this is the case.` })
-	embed.setColor(action === "added" ? 5763719 : 15548997)
-
-	titleWebhook.send({
-			embeds: [embed]
-	});
-	res.json({ "result": "Log Created and Sent" })
-	
-});
-
-router.get("/crystal-log", async (req, res) => {
-	
-});
-
-router.get("/arrest-log", async (req, res) => {
-	res.status(500).json({ message: "WIP" })
-});
-
->>>>>>> 6ff4490e6f1e5ec6409a3845c2ffe5a0dc9a9b26
 module.exports = router;

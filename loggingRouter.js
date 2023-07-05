@@ -11,7 +11,6 @@ const titleWebhook = new WebhookClient({ id: titleWebhookId, token: titleWebhook
 
 router.get("/title-log", async (req, res) => {
     let data
-    console.dir(req.query)
     if (req.query.data) {
         data = JSON.parse(req.query.data)
     } else {
@@ -58,7 +57,6 @@ const crystalWebhook = new WebhookClient({ id: crystalWebhookId, token: crystalW
 
 router.get("/crystal-log", async (req, res) => {
     let data
-    
     if (req.query.data) {
         data = JSON.parse(req.query.data);
     } else {

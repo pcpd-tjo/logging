@@ -86,7 +86,7 @@ router.get("/crystal-log", async (req, res) => {
 	let reasonStr = cg === true ? "Crystal Gathering" : reason
     let actionStr = action.charAt(0).toUpperCase() + action.slice(1)
 	let colourStr = (crystal_colour.charAt(0).toUpperCase() + crystal_colour.slice(1)).replace(/ /g,'')
-    let HexColour = Colors[colourStr]
+    let HexColour = Colors[colourStr] || 0xffffff
     let properties = {
         "Title": "Crystal Log",
         "Description": `Crystal Editor: ${player} (${await getIdFromUsername(player)}) \n Player Affected: ${targetplayer} (${await getIdFromUsername(targetplayer)}) \n Crystal ${actionStr}: ${colourStr} \n Reason: ${reasonStr} \n <t:${Math.floor(Date.now() / 1000)}:F>`,

@@ -11,8 +11,8 @@ const titleWebhook = new WebhookClient({ id: titleWebhookId, token: titleWebhook
 
 router.get("/title-log", async (req, res) => {
     let data
-    if (req.header('RequestData') && !req.header('RequestData').title) {
-        data = JSON.parse(req.header('RequestData'));
+    if (req.query.data) {
+        data = JSON.parse(req.query.data)
     } else {
         let actions = [
             "added",
@@ -20,7 +20,6 @@ router.get("/title-log", async (req, res) => {
         ]
         data = {"title": "Test","player": "UntoldGam","target": "Dev_Untold","action": actions[Math.floor(Math.random() * actions.length)]}   
     }
-    
 
 	let title = data.title;
 	let target = data.target;
@@ -58,8 +57,8 @@ const crystalWebhook = new WebhookClient({ id: crystalWebhookId, token: crystalW
 
 router.get("/crystal-log", async (req, res) => {
     let data
-    if (req.header('RequestData')) {
-        data = JSON.parse(req.header('RequestData'));
+    if (req.query.data) {
+        data = JSON.parse(req.query.data);
     } else {
         let actions = [
             "added",

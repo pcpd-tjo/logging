@@ -31,7 +31,6 @@ router.get("/title-log", async (req, res) => {
 	let target = data.target;
 	let player = data.player;
 	let action = data.action;
-	console.log(data)
     let color
     let text
     if (action === "added") {
@@ -50,13 +49,11 @@ router.get("/title-log", async (req, res) => {
         "Color": color
     }
 
-    console.log("properties made")
     let embed = await require("./embed")(properties);
 
     titleWebhook.send({
         embeds: [embed]
     }).then(() => {
-        console.log("embed made");
         res.status(200).json({ "result": "Log Created and Sent" });
     }).catch(console.log);
 
@@ -94,7 +91,6 @@ router.get("/crystal-log", async (req, res) => {
     let actionStr = action.charAt(0).toUpperCase() + action.slice(1)
 	let colourStr = (crystal_colour.charAt(0).toUpperCase() + crystal_colour.slice(1)).replace(/ /g,'')
     let HexColour = Colors[colourStr]
-    console.log(colourStr,HexColour)
     let properties = {
         "Title": "Crystal Log",
         "Description": `Crystal Editor: ${player} (${await getIdFromUsername(player)}) \n Player Affected: ${targetplayer} (${await getIdFromUsername(targetplayer)}) \n Crystal ${actionStr}: ${colourStr} \n Reason: ${reasonStr} \n <t:${Math.floor(Date.now() / 1000)}:F>`,
@@ -105,7 +101,6 @@ router.get("/crystal-log", async (req, res) => {
 	crystalWebhook.send({
 			embeds: [embed]
 	}).then(() => {
-        console.log("Embed made")
         res.status(200).json({"result": "Log Created and Sent"})
     }).catch(console.log);
 });
